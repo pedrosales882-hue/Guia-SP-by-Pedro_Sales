@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* GuiaSP — paleta inspirada na cidade: cinza concreto, amarelo táxi, vermelho metrô */
+    --background: 40 30% 96%;
+    --foreground: 220 15% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 12%;
+
+    /* Vermelho linha 3 do metrô */
+    --primary: 0 78% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Amarelo táxi paulistano */
+    --secondary: 45 95% 55%;
+    --secondary-foreground: 220 15% 12%;
+
+    --muted: 220 10% 92%;
+    --muted-foreground: 220 10% 40%;
+
+    --accent: 210 80% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 0 78% 48%;
+
+    --radius: 0.75rem;
+
+    --gradient-hero: linear-gradient(135deg, hsl(0 78% 48%) 0%, hsl(15 85% 55%) 50%, hsl(45 95% 55%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(40 30% 98%) 100%);
+    --shadow-elevated: 0 20px 50px -20px hsl(0 78% 48% / 0.25);
+    --shadow-card: 0 4px 20px -4px hsl(220 15% 12% / 0.08);
+  }
+
+  .dark {
+    --background: 220 20% 8%;
+    --foreground: 40 30% 96%;
+    --card: 220 18% 12%;
+    --card-foreground: 40 30% 96%;
+    --popover: 220 18% 12%;
+    --popover-foreground: 40 30% 96%;
+    --primary: 0 78% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 45 90% 55%;
+    --secondary-foreground: 220 20% 8%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 210 80% 55%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 0 78% 55%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Barlow', system-ui, sans-serif;
+  }
+  h1, h2, h3, .display {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer utilities {
+  .bg-hero { background: var(--gradient-hero); }
+  .bg-card-gradient { background: var(--gradient-card); }
+  .shadow-elevated { box-shadow: var(--shadow-elevated); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+}
+
+/* Markdown response styling */
+.prose-guia h2 {
+  @apply text-2xl font-bold mt-6 mb-3 text-primary flex items-center gap-2;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.04em;
+}
+.prose-guia h2:first-child { @apply mt-0; }
+.prose-guia p { @apply mb-3 leading-relaxed text-foreground/90; }
+.prose-guia ul { @apply list-disc pl-6 mb-3 space-y-1; }
+.prose-guia ol { @apply list-decimal pl-6 mb-3 space-y-1; }
+.prose-guia strong { @apply font-semibold text-foreground; }
+.prose-guia code { @apply px-1.5 py-0.5 rounded bg-muted text-sm; }
